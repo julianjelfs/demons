@@ -1,3 +1,36 @@
 body {
-  margin: 0;
+    margin: 0;
+    padding: 20px;
+    font-family: Arial;
+}
+
+.choose {
+
+}
+
+input {
+    padding:10px;
+}
+
+button {
+    padding:3px;
+    margin-left:8px;
+    background-color: #ccc;
+    border: 1px solid #aaa;
+    float:right;
+    min-width: 30px;
+}
+
+.child {
+    clear:both;
+    padding:20px;
+    background:#eee;
+    margin-top:3px;
+    margin-bottom: 3px;
+
+}
+
+.add-child {
+    margin-top: 20px;
+    padding:20px;
 }

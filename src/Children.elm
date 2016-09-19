@@ -9,16 +9,14 @@ import String
 renderChild: Child -> Html Msg
 renderChild child =
     div
-        [ class "child" ]
+        [ class "child"
+        , onClick (SelectChild child) ]
         [ span
             []
             [ text (child.name ++ " (" ++ (toString child.balance) ++ ")") ]
         , button
-            [ onClick (SelectChild child) ]
-            [ text "Select" ]
-        , button
             [ onClick (DeleteChild child) ]
-            [ text "Delete" ]
+            [ text "X" ]
         ]
 
 
@@ -39,8 +37,8 @@ root model =
     in
         div
             []
-            [ div
-                []
+            [ h3
+                [ class "choose" ]
                 [ text "Choose which child to manage" ]
             , div
                 []
@@ -48,7 +46,7 @@ root model =
                     |> List.sortBy .name
                     |> List.map renderChild)
             , fieldset
-                []
+                [ class "add-child" ]
                 [ legend
                     []
                     [ text "Add another child" ]
