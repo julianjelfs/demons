@@ -18,24 +18,18 @@ root model =
             div
                 []
                 [ div
-                    []
-                    [ h3
-                        []
-                        [ text ("Scorecard for " ++ child.name) ]
-                    ]
-                , div
-                    []
+                    [ class "score-btns good" ]
                     ([1..3]
                         |> List.map (btn child (+)))
                 , div
-                    []
-                    [ text ("Current score: " ++ (toString child.balance)) ]
+                    [ class "current-score" ]
+                    [ text (child.name ++ " : " ++ (toString child.balance)) ]
                 , div
-                    []
+                    [ class "score-btns bad" ]
                     ([1..3]
                         |> List.map (btn child (-)))
                 , div
-                    []
+                    [ class "back-btn" ]
                     [ button
                         [ onClick UnselectChild ]
                         [ text "Back" ]

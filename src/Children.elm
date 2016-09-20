@@ -5,19 +5,31 @@ import Types exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import String
+import Json.Decode as Json
 
 renderChild: Child -> Html Msg
 renderChild child =
-    div
-        [ class "child"
-        , onClick (SelectChild child) ]
-        [ span
-            []
-            [ text (child.name ++ " (" ++ (toString child.balance) ++ ")") ]
-        , button
-            [ onClick (DeleteChild child) ]
-            [ text "X" ]
-        ]
+    let
+        cls =
+            if child.balance < 0 then
+                "child bad"
+            else
+                "child good"
+    in
+        div
+            [ class cls
+            , onClick (SelectChild child) ]
+            [ span
+                []
+                [ text (child.name ++ " (" ++ (toString child.balance) ++ ")") ]
+            , button
+                [ class "del-btn"
+                , onWithOptions
+                    "click"
+                    { defaultOptions | stopPropagation = True }
+                    (Json.succeed (DeleteChild child)) ]
+                [ text "X" ]
+            ]
 
 
 root: Model -> Html Msg
@@ -59,7 +71,8 @@ root model =
                         ]
                         []
                     , button
-                        [ disabled (not canAdd)
+                        [ class "add-btn"
+                        , disabled (not canAdd)
                         , onClick AddChild ]
                         [ text "Add" ]
                     ]

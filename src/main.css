@@ -14,11 +14,57 @@ input {
 
 button {
     padding:3px;
-    margin-left:8px;
+    margin-left:10px;
     background-color: #ccc;
     border: 1px solid #aaa;
+}
+
+button.del-btn, button.add-btn {
     float:right;
     min-width: 30px;
+}
+
+.back-btn {
+    text-align: center;
+}
+
+.add-btn, .back-btn button {
+    height:35px;
+    width: 60px;
+}
+
+.current-score {
+    border: 1px solid #ccc;
+    padding: 15px;
+    text-align: center;
+}
+
+.score-btns {
+    padding:20px;
+    text-align: center;
+}
+
+.score-btns button {
+    width:80px;
+    height:80px;
+    font-size: 1.3em;
+    border:none;
+}
+
+.child.good {
+    background-color: rgba(0, 255, 0, 0.2);
+}
+
+.child.bad {
+    background-color: rgba(255, 0, 0, 0.2);
+}
+
+.score-btns.good button {
+    background-color: lawngreen;
+}
+
+.score-btns.bad button {
+    background-color: red;
 }
 
 .child {
