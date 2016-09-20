@@ -4,6 +4,15 @@ body {
     font-family: Arial;
 }
 
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.container > div {
+    flex:1;
+}
+
 .choose {
 
 }
@@ -14,13 +23,11 @@ input {
 
 button {
     padding:3px;
-    margin-left:10px;
     background-color: #ccc;
     border: 1px solid #aaa;
 }
 
 button.del-btn, button.add-btn {
-    float:right;
     min-width: 30px;
 }
 
@@ -29,8 +36,9 @@ button.del-btn, button.add-btn {
 }
 
 .add-btn, .back-btn button {
-    height:35px;
+    height:38px;
     width: 60px;
+    margin-left:8px;
 }
 
 .current-score {
@@ -40,43 +48,61 @@ button.del-btn, button.add-btn {
 }
 
 .score-btns {
-    padding:20px;
-    text-align: center;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 .score-btns button {
     width:80px;
     height:80px;
+    margin:8px 0 8px 0;
     font-size: 1.3em;
     border:none;
+    flex:1;
 }
 
 .child.good {
-    background-color: rgba(0, 255, 0, 0.2);
+    background-color: rgba(0, 255, 0, 0.3);
 }
 
 .child.bad {
-    background-color: rgba(255, 0, 0, 0.2);
+    background-color: rgba(255, 0, 0, 0.3);
 }
 
 .score-btns.good button {
-    background-color: lawngreen;
+    background-color: rgba(0, 255, 0, 0.3);
 }
 
 .score-btns.bad button {
-    background-color: red;
+    background-color: rgba(255, 0, 0, 0.3);
 }
 
 .child {
-    clear:both;
+    display:flex;
     padding:20px;
     background:#eee;
-    margin-top:3px;
-    margin-bottom: 3px;
+    margin: 5px 0 5px 0;
+}
 
+.selected-child > div {
+    flex:1;
+    flex-basis: 20%;
+}
+
+.child>span {
+    flex: 1;
 }
 
 .add-child {
     margin-top: 20px;
     padding:20px;
+}
+
+.add-child>div {
+    display:flex;
+}
+
+.add-child input {
+    flex-grow: 1;
 }
