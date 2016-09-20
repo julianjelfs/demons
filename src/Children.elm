@@ -48,7 +48,7 @@ root model =
 
     in
         div
-            []
+            [ class "container" ]
             [ h3
                 [ class "choose" ]
                 [ text "Choose which child to manage" ]
