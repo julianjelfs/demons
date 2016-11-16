@@ -1,7 +1,6 @@
 module Main exposing(..)
 
 import Html exposing (..)
-import Html.App as Html
 import View
 import Types exposing (..)
 import State
